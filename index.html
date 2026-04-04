@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galvanite — Make your product impossible to ignore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <canvas id="nebula" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <polygon points="11,1 14,9 22,9 16,14 18,22 11,17 4,22 6,14 0,9 8,9" fill="#ffd400"/>
+        </svg>
+        <span>galvanite</span>
+      </a>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#growth">Services</a></li>
+        <li><a href="#case-studies">Work</a></li>
+        <li><a href="#testimonials">Clients</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#cta" class="nav-cta">Get Started →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-up" style="--d:.05s">
+        <span class="eyebrow-dot"></span>
+        Web design &amp; development studio
+      </div>
+      <h1 class="hero-headline fade-up" style="--d:.15s">
+        Make your product<br />
+        <span class="hero-gradient">impossible to ignore</span>
+      </h1>
+      <p class="hero-sub fade-up" style="--d:.25s">
+        We design and build high-performance websites that convert visitors,
+        establish authority, and grow your business — fast.
+      </p>
+      <div class="hero-actions fade-up" style="--d:.35s">
+        <a href="#cta" class="btn btn-yellow">Launch your site →</a>
+        <a href="#case-studies" class="btn btn-outline">See our work</a>
+      </div>
+      <div class="hero-trust fade-up" style="--d:.45s">
+        <span class="trust-pill">⚡ 4-week delivery</span>
+        <span class="trust-pill">✦ Conversion-first</span>
+        <span class="trust-pill">★ 5.0 rated</span>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in" style="--d:.2s">
+      <div class="rocket-stage">
+        <div class="nebula-orange"></div>
+        <div class="nebula-blue"></div>
+        <div class="rocket-body">
+          <div class="rocket-emoji">🚀</div>
+          <div class="rocket-flames">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+        <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
+        <div class="planet planet-1"></div>
+        <div class="planet planet-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Web Design</span><span class="dot">·</span>
+      <span>Webflow Development</span><span class="dot">·</span>
+      <span>Next.js</span><span class="dot">·</span>
+      <span>Brand Identity</span><span class="dot">·</span>
+      <span>CRO</span><span class="dot">·</span>
+      <span>SEO</span><span class="dot">·</span>
+      <span>Landing Pages</span><span class="dot">·</span>
+      <span>Web Design</span><span class="dot">·</span>
+      <span>Webflow Development</span><span class="dot">·</span>
+      <span>Next.js</span><span class="dot">·</span>
+      <span>Brand Identity</span><span class="dot">·</span>
+      <span>CRO</span><span class="dot">·</span>
+      <span>SEO</span><span class="dot">·</span>
+      <span>Landing Pages</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- GROWTH -->
+  <section class="growth section-pad" id="growth">
+    <div class="container">
+      <div class="growth-layout">
+        <div class="growth-left">
+          <p class="label reveal">Why Galvanite</p>
+          <h2 class="section-heading reveal">Built for your<br />next stage of growth</h2>
+          <p class="section-body reveal">We don't just build websites. We build growth engines — crafted to convert, perform, and scale with your ambitions.</p>
+          <a href="#cta" class="btn btn-yellow reveal" style="margin-top:2rem;display:inline-flex">Start a project →</a>
+        </div>
+        <div class="growth-right">
+          <div class="growth-card reveal">
+            <div class="growth-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <h3>Conversion-first design</h3>
+              <p>Every screen is designed to turn visitors into customers. We obsess over flow, hierarchy, and CTAs.</p>
+            </div>
+          </div>
+          <div class="growth-card reveal">
+            <div class="growth-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h3>Blazing-fast delivery</h3>
+              <p>From strategy to live site in 4 weeks. No bloat, no back-and-forth — just results, on time.</p>
+            </div>
+          </div>
+          <div class="growth-card reveal">
+            <div class="growth-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3>Brand that commands attention</h3>
+              <p>We build visual identities that make your product memorable and impossible to scroll past.</p>
+            </div>
+          </div>
+          <div class="growth-card reveal">
+            <div class="growth-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h3>Ongoing partnership</h3>
+              <p>We stay with you after launch — optimizing, iterating, and growing alongside your business.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="cases section-pad" id="case-studies">
+    <div class="container">
+      <p class="label reveal">Case Studies</p>
+      <div class="cases-header">
+        <h2 class="section-heading reveal">Work that speaks<br />for itself</h2>
+        <a href="#" class="btn btn-outline reveal">View all work →</a>
+      </div>
+    </div>
+    <div class="cases-scroll">
+      <div class="cases-track">
+        <article class="case-card reveal" style="--accent:#ffd400">
+          <div class="case-thumb">
+            <div class="case-thumb-inner case-1"></div>
+            <span class="case-tag">SaaS</span>
+          </div>
+          <div class="case-info">
+            <h3>NovaSpark</h3>
+            <p>3× signups after rebrand. Full redesign of homepage &amp; onboarding flow, cutting time-to-value by 40%.</p>
+            <span class="case-arrow">→</span>
+          </div>
+        </article>
+        <article class="case-card reveal" style="--accent:#a78bfa">
+          <div class="case-thumb">
+            <div class="case-thumb-inner case-2"></div>
+            <span class="case-tag">E-commerce</span>
+          </div>
+          <div class="case-info">
+            <h3>Lumière</h3>
+            <p>£2M revenue in first quarter. Luxury brand launch with editorial design and custom checkout UX.</p>
+            <span class="case-arrow">→</span>
+          </div>
+        </article>
+        <article class="case-card reveal" style="--accent:#34d399">
+          <div class="case-thumb">
+            <div class="case-thumb-inner case-3"></div>
+            <span class="case-tag">Fintech</span>
+          </div>
+          <div class="case-info">
+            <h3>Arcvault</h3>
+            <p>Series A closed. Investor-facing product site that communicated trust and traction to VCs.</p>
+            <span class="case-arrow">→</span>
+          </div>
+        </article>
+        <article class="case-card reveal" style="--accent:#f97316">
+          <div class="case-thumb">
+            <div class="case-thumb-inner case-4"></div>
+            <span class="case-tag">Agency</span>
+          </div>
+          <div class="case-info">
+            <h3>Meridian</h3>
+            <p>5× inbound leads. New positioning and site for a B2B consultancy entering a crowded market.</p>
+            <span class="case-arrow">→</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / LAUNCH PAD -->
+  <section class="launchpad section-pad" id="services">
+    <div class="container">
+      <div class="launchpad-wrap reveal">
+        <div class="launchpad-card">
+          <div class="launchpad-left">
+            <span class="launchpad-badge">Our offering</span>
+            <h2 class="launchpad-title">Website<br />Launch Pad</h2>
+            <p class="launchpad-sub">Everything you need to go from zero to a world-class web presence, without the agency overhead.</p>
+            <a href="#cta" class="btn btn-dark">Get started →</a>
+          </div>
+          <div class="launchpad-right">
+            <div class="service-row">
+              <div class="service-num">01</div>
+              <div class="service-text">
+                <h3>High-Fidelity Designs</h3>
+                <p>Pixel-perfect Figma designs reviewed and approved before a single line of code is written.</p>
+              </div>
+              <div class="service-chevron">›</div>
+            </div>
+            <div class="service-row">
+              <div class="service-num">02</div>
+              <div class="service-text">
+                <h3>Web Development</h3>
+                <p>Clean, performant code. Webflow, Next.js, or custom — we use what fits your stack.</p>
+              </div>
+              <div class="service-chevron">›</div>
+            </div>
+            <div class="service-row">
+              <div class="service-num">03</div>
+              <div class="service-text">
+                <h3>Website Delivery</h3>
+                <p>Domain, hosting, analytics, SEO, and a full handover so you own everything.</p>
+              </div>
+              <div class="service-chevron">›</div>
+            </div>
+          </div>
+        </div>
+        <div class="float-stat stat-a">
+          <span class="stat-val">4 wks</span>
+          <span class="stat-lbl">Avg. delivery</span>
+        </div>
+        <div class="float-stat stat-b">
+          <span class="stat-val">+180%</span>
+          <span class="stat-lbl">Avg. conversion lift</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section-pad" id="testimonials">
+    <div class="container">
+      <p class="label reveal">Testimonials</p>
+      <h2 class="section-heading reveal">Clients who took off</h2>
+      <div class="t-grid">
+        <div class="t-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p>"Galvanite completely transformed how we present ourselves. Within 6 weeks of launch our inbound leads doubled and our close rate jumped to record highs."</p>
+          <div class="t-author">
+            <div class="t-av">JR</div>
+            <div>
+              <strong>James R.</strong>
+              <span>CEO, NovaSpark</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-card t-card-featured reveal">
+          <div class="t-stars">★★★★★</div>
+          <p>"I was blown away by the detail. They didn't just build a website — they understood our brand and elevated it beyond what I could imagine."</p>
+          <div class="t-author">
+            <div class="t-av">SM</div>
+            <div>
+              <strong>Sofia M.</strong>
+              <span>Founder, Lumière</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p>"Fast, professional, and the results speak for themselves. Our investors specifically called out the website when we closed our Series A round."</p>
+          <div class="t-author">
+            <div class="t-av">TK</div>
+            <div>
+              <strong>Tom K.</strong>
+              <span>CTO, Arcvault</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFT-OFF CTA -->
+  <section class="liftoff section-pad" id="cta">
+    <div class="liftoff-bg"></div>
+    <div class="container liftoff-inner">
+      <p class="label reveal" style="justify-content:center">Ready?</p>
+      <h2 class="liftoff-heading reveal">ready for<br /><em>lift-off</em></h2>
+      <p class="liftoff-sub reveal">Book a free 30-minute strategy call. We'll tell you exactly what your site needs — no fluff, no sales pitch.</p>
+      <div class="liftoff-actions reveal">
+        <a href="mailto:hello@galvanite.io" class="btn btn-yellow btn-lg">Book a free call →</a>
+        <p class="liftoff-note">No commitment. Response within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq section-pad" id="faq">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-left">
+          <p class="label reveal">FAQ</p>
+          <h2 class="section-heading reveal">Common<br />questions</h2>
+          <p class="section-body reveal">Can't find what you're looking for? <a href="mailto:hello@galvanite.io" class="inline-link">Email us directly.</a></p>
+        </div>
+        <div class="faq-right">
+          <details class="faq-item reveal">
+            <summary>How long does a project take?</summary>
+            <div class="faq-body">Most projects are designed and launched within 4–8 weeks. We move fast without cutting corners — our process is built for speed.</div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>What's included in the Website Launch Pad?</summary>
+            <div class="faq-body">Design, development, copywriting direction, SEO setup, analytics, hosting configuration, and a 30-day post-launch support window.</div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Do you work with early-stage startups?</summary>
+            <div class="faq-body">Absolutely. We love working with founders at the pre-launch or Series A stage. A great website is one of the highest-leverage investments early on.</div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Can you redesign an existing website?</summary>
+            <div class="faq-body">Yes. We offer full redesigns and incremental improvement engagements. We'll audit your current site and propose what will move the needle most.</div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>What platforms do you build on?</summary>
+            <div class="faq-body">Webflow for marketing sites, Next.js / React for product-driven sites, and custom builds when the project demands it.</div>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Do you offer ongoing retainers?</summary>
+            <div class="faq-body">Yes. After launch, many clients stay on monthly retainers for CRO, design updates, and new feature pages. We're a long-term partner.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><polygon points="11,1 14,9 22,9 16,14 18,22 11,17 4,22 6,14 0,9 8,9" fill="#ffd400"/></svg>
+          <span>galvanite</span>
+        </div>
+        <p>Making products impossible to ignore.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#case-studies">Work</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-links-group">
+        <h4>Services</h4>
+        <a href="#">Web Design</a>
+        <a href="#">Development</a>
+        <a href="#">Branding</a>
+        <a href="#">SEO</a>
+      </div>
+      <div class="footer-links-group">
+        <h4>Contact</h4>
+        <a href="mailto:hello@galvanite.io">hello@galvanite.io</a>
+        <a href="#cta">Book a call</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="container footer-bar-inner">
+        <span>© 2026 Galvanite. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
