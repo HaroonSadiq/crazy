@@ -64,14 +64,131 @@
 
     <div class="hero-visual fade-in" style="--d:.2s">
       <div class="rocket-stage">
-        <div class="nebula-orange"></div>
-        <div class="nebula-blue"></div>
-        <div class="rocket-body">
-          <div class="rocket-emoji">🚀</div>
-          <div class="rocket-flames">
-            <span></span><span></span><span></span><span></span><span></span>
+
+        <!-- Ambient glow behind rocket body -->
+        <div class="rocket-glow-bg"></div>
+
+        <!-- Rocket + exhaust -->
+        <div class="rocket-launch-group">
+          <div class="exhaust-glow"></div>
+
+          <svg class="rocket-svg" viewBox="0 0 100 185" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <defs>
+              <linearGradient id="rBody" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#a8bccf"/>
+                <stop offset="22%"  stop-color="#edf4fd"/>
+                <stop offset="62%"  stop-color="#d6e5f2"/>
+                <stop offset="100%" stop-color="#8aa0b8"/>
+              </linearGradient>
+              <linearGradient id="rNose" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#96aec2"/>
+                <stop offset="35%"  stop-color="#e6f1fc"/>
+                <stop offset="100%" stop-color="#607fa0"/>
+              </linearGradient>
+              <linearGradient id="rFin" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#152035"/>
+                <stop offset="55%"  stop-color="#223350"/>
+                <stop offset="100%" stop-color="#0e1a2a"/>
+              </linearGradient>
+              <radialGradient id="rWin" cx="33%" cy="28%">
+                <stop offset="0%"   stop-color="#d8f0ff"/>
+                <stop offset="50%"  stop-color="#1878d8"/>
+                <stop offset="100%" stop-color="#082e58"/>
+              </radialGradient>
+              <linearGradient id="rNozzle" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%"   stop-color="#2e3d4e"/>
+                <stop offset="100%" stop-color="#111b26"/>
+              </linearGradient>
+              <linearGradient id="rStripe" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#18294a" stop-opacity="0.92"/>
+                <stop offset="50%"  stop-color="#243a62"/>
+                <stop offset="100%" stop-color="#18294a" stop-opacity="0.92"/>
+              </linearGradient>
+              <linearGradient id="rEng" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#22303d"/>
+                <stop offset="50%"  stop-color="#364a5c"/>
+                <stop offset="100%" stop-color="#22303d"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Nose cone -->
+            <path d="M50 2 C50 2 66 30 69 52 L31 52 C34 30 50 2 50 2 Z" fill="url(#rNose)"/>
+            <path d="M50 2 C50 2 55 17 56 34 L50 34 Z" fill="rgba(255,255,255,0.20)"/>
+
+            <!-- Body -->
+            <rect x="28" y="50" width="44" height="78" rx="2" fill="url(#rBody)"/>
+            <rect x="29" y="50" width="10" height="78" rx="1" fill="rgba(255,255,255,0.17)"/>
+            <rect x="63" y="50" width="8"  height="78" rx="1" fill="rgba(0,0,0,0.09)"/>
+
+            <!-- Panel lines -->
+            <line x1="28" y1="74"  x2="72" y2="74"  stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+            <line x1="28" y1="102" x2="72" y2="102" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+
+            <!-- Navy stripe -->
+            <rect x="28" y="61" width="44" height="9" fill="url(#rStripe)"/>
+            <line x1="28" y1="61" x2="72" y2="61" stroke="rgba(20,40,80,0.4)" stroke-width="0.8"/>
+            <line x1="28" y1="70" x2="72" y2="70" stroke="rgba(20,40,80,0.4)" stroke-width="0.8"/>
+
+            <!-- Window -->
+            <circle cx="50" cy="87" r="9.5" fill="url(#rWin)" stroke="rgba(190,220,255,0.72)" stroke-width="1.8"/>
+            <circle cx="50" cy="87" r="9.5" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="3"/>
+            <circle cx="46.5" cy="84" r="3"  fill="rgba(255,255,255,0.40)"/>
+
+            <!-- Collar ring -->
+            <rect x="27" y="49" width="46" height="4" rx="1.5" fill="url(#rEng)" opacity="0.58"/>
+
+            <!-- Delta fins -->
+            <path d="M28 114 L2 155 L28 140 Z"  fill="url(#rFin)"/>
+            <path d="M28 114 L28 140 L8 136 Z"  fill="rgba(255,255,255,0.06)"/>
+            <path d="M72 114 L98 155 L72 140 Z"  fill="url(#rFin)"/>
+            <path d="M72 114 L72 140 L92 136 Z" fill="rgba(255,255,255,0.06)"/>
+
+            <!-- Engine section -->
+            <rect x="25" y="126" width="50" height="12" rx="1.5" fill="url(#rEng)"/>
+            <line x1="33" y1="126" x2="33" y2="138" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <line x1="50" y1="126" x2="50" y2="138" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <line x1="67" y1="126" x2="67" y2="138" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+            <!-- Nozzle bell -->
+            <path d="M31 138 L20 172 L80 172 L69 138 Z" fill="url(#rNozzle)"/>
+            <path d="M35 138 L26 169 L74 169 L65 138 Z" fill="#0d1822"/>
+            <ellipse cx="50" cy="170" rx="27" ry="5"   fill="#18283a" stroke="#253545" stroke-width="0.5"/>
+            <ellipse cx="50" cy="139" rx="13" ry="3.5" fill="rgba(255,200,60,0.25)"/>
+          </svg>
+
+          <!-- Exhaust plume -->
+          <div class="plume">
+            <div class="nozzle-glow"></div>
+            <div class="plume-core"></div>
+            <div class="plume-mid"></div>
+            <div class="plume-outer"></div>
+            <div class="mach-diamonds">
+              <div class="md md1"></div>
+              <div class="md md2"></div>
+              <div class="md md3"></div>
+            </div>
+            <div class="sparks">
+              <div class="spark" style="--sx:50px;--sy:50px;--sd:.9s;--ss:0s"></div>
+              <div class="spark" style="--sx:-52px;--sy:46px;--sd:.72s;--ss:.12s"></div>
+              <div class="spark" style="--sx:36px;--sy:70px;--sd:1.1s;--ss:.22s"></div>
+              <div class="spark" style="--sx:-40px;--sy:64px;--sd:.82s;--ss:.06s"></div>
+              <div class="spark" style="--sx:64px;--sy:34px;--sd:.65s;--ss:.18s"></div>
+              <div class="spark" style="--sx:-60px;--sy:44px;--sd:1s;--ss:.3s"></div>
+              <div class="spark" style="--sx:24px;--sy:84px;--sd:.88s;--ss:.36s"></div>
+              <div class="spark" style="--sx:-26px;--sy:78px;--sd:.95s;--ss:.09s"></div>
+            </div>
+          </div>
+
+          <!-- Launch smoke -->
+          <div class="launch-smoke">
+            <div class="sp sp1"></div>
+            <div class="sp sp2"></div>
+            <div class="sp sp3"></div>
+            <div class="sp sp4"></div>
+            <div class="sp sp5"></div>
           </div>
         </div>
+
         <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
         <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
         <div class="planet planet-1"></div>

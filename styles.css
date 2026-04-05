@@ -338,67 +338,221 @@ body {
   justify-content: center;
   align-items: center;
 }
+/* ── ROCKET ──────────────────────────────────────────────── */
 .rocket-stage {
   position: relative;
-  width: 300px; height: 300px;
+  width: 300px; height: 380px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 18px;
+  overflow: visible;
 }
-.nebula-orange {
+
+/* Large ambient glow behind rocket body */
+.rocket-glow-bg {
   position: absolute;
-  width: 240px; height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 60% 40%, rgba(255,160,0,.28) 0%, rgba(255,100,0,.12) 40%, transparent 70%);
-  animation: nebula-pulse 6s ease-in-out infinite alternate;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -46%);
+  width: 230px; height: 330px;
+  background: radial-gradient(ellipse at 50% 55%,
+    rgba(255,185,45,.22) 0%,
+    rgba(255,100,0,.11)  42%,
+    rgba(110,35,200,.07) 65%,
+    transparent 76%);
+  filter: blur(26px);
+  z-index: 0;
+  animation: glow-breathe 3.5s ease-in-out infinite;
 }
-.nebula-blue {
-  position: absolute;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 60%, rgba(30,100,200,.25) 0%, transparent 65%);
-  animation: nebula-pulse 8s ease-in-out infinite alternate-reverse;
+@keyframes glow-breathe {
+  0%,100% { transform: translate(-50%,-46%) scale(1);    opacity: .78; }
+  50%      { transform: translate(-50%,-46%) scale(1.12); opacity: 1; }
 }
-@keyframes nebula-pulse {
-  from { transform: scale(1) rotate(0deg); opacity: .8; }
-  to   { transform: scale(1.15) rotate(8deg); opacity: 1; }
-}
-.rocket-body {
+
+/* Rocket + exhaust group — whole thing vibrates */
+.rocket-launch-group {
   position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
+  will-change: transform;
+  animation: launch-shake .09s ease-in-out infinite;
 }
-.rocket-emoji {
-  font-size: clamp(4rem, 8vw, 7rem);
-  filter: drop-shadow(0 0 30px rgba(255,180,0,.6));
-  animation: rocket-float 3.5s ease-in-out infinite;
-  transform-origin: center;
+@keyframes launch-shake {
+  0%   { transform: translate(0,  0); }
+  25%  { transform: translate(-1px, 1px); }
+  50%  { transform: translate(1px,-1px); }
+  75%  { transform: translate(-1px,-1px); }
+  100% { transform: translate(0,  0); }
 }
-@keyframes rocket-float {
-  0%,100% { transform: translateY(0) rotate(-12deg); }
-  50%      { transform: translateY(-16px) rotate(-12deg); }
+
+/* SVG rocket — directional shadow only, no edge-blurring glow */
+.rocket-svg {
+  width: 108px;
+  height: auto;
+  position: relative;
+  z-index: 3;
+  transform: translateZ(0);
+  filter: drop-shadow(-4px 8px 14px rgba(0,0,0,.52));
 }
-.rocket-flames {
+
+/* Warm glow flooding behind the plume area */
+.exhaust-glow {
+  position: absolute;
+  bottom: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 105px; height: 230px;
+  background: radial-gradient(ellipse at 50% 90%,
+    rgba(255,165,0,.46) 0%,
+    rgba(255,75,0,.22)  40%,
+    transparent 68%);
+  filter: blur(20px);
+  z-index: 0;
+  animation: exhaust-breathe .2s ease-in-out infinite alternate;
+}
+@keyframes exhaust-breathe {
+  from { opacity: .8;  transform: translateX(-50%) scaleX(1); }
+  to   { opacity: 1;   transform: translateX(-50%) scaleX(1.1); }
+}
+
+/* Plume container */
+.plume {
+  position: relative;
+  width: 16px; height: 110px;
+  margin-top: -6px;
+  z-index: 2;
   display: flex;
-  gap: 5px;
-  margin-top: -12px;
+  justify-content: center;
 }
-.rocket-flames span {
-  border-radius: 0 0 4px 4px;
-  animation: flame var(--fd, .5s) ease-in-out infinite alternate;
-  transform-origin: top;
-  background: linear-gradient(to bottom, #ffcc00, #ff6600, transparent);
+
+/* White-hot nozzle exit point */
+.nozzle-glow {
+  position: absolute;
+  top: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255,255,225,.96) 0%,
+    rgba(255,210,50,.68)  30%,
+    rgba(255,110,0,.28)   62%,
+    transparent 78%);
+  filter: blur(4px);
+  z-index: 6;
+  animation: nozzle-flicker .07s ease-in-out infinite alternate;
 }
-.rocket-flames span:nth-child(1) { width:4px; height:20px; --fd:.45s; animation-delay:0s; }
-.rocket-flames span:nth-child(2) { width:6px; height:36px; --fd:.55s; animation-delay:.08s; }
-.rocket-flames span:nth-child(3) { width:8px; height:48px; --fd:.4s;  animation-delay:.04s; }
-.rocket-flames span:nth-child(4) { width:6px; height:36px; --fd:.6s;  animation-delay:.12s; }
-.rocket-flames span:nth-child(5) { width:4px; height:20px; --fd:.5s;  animation-delay:.06s; }
-@keyframes flame {
-  from { transform: scaleY(1); opacity: 1; }
-  to   { transform: scaleY(.55); opacity: .5; }
+@keyframes nozzle-flicker {
+  from { transform: translateX(-50%) scale(.9);  opacity: .9; }
+  to   { transform: translateX(-50%) scale(1.1); opacity: 1; }
+}
+
+/* Inner core — white → yellow */
+.plume-core {
+  position: absolute;
+  top: 2px; left: 50%;
+  transform: translateX(-50%);
+  width: 13px; height: 74px;
+  background: linear-gradient(to bottom,
+    #fff 0%, #ffffc0 12%, #ffe000 36%,
+    #ff8800 66%, rgba(200,50,0,.3) 85%, transparent);
+  border-radius: 0 0 50% 50%;
+  filter: blur(2px);
+  z-index: 5;
+  animation: plume-flicker .08s ease-in-out infinite alternate;
+}
+
+/* Mid cone — orange */
+.plume-mid {
+  position: absolute;
+  top: 4px; left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 90px;
+  background: linear-gradient(to bottom,
+    rgba(255,200,0,.88) 0%, rgba(255,100,0,.62) 44%,
+    rgba(180,40,0,.30)  70%, transparent);
+  border-radius: 0 0 60% 60%;
+  filter: blur(5px);
+  z-index: 4;
+  animation: plume-flicker .12s ease-in-out infinite alternate-reverse;
+}
+
+/* Outer diffuse cone */
+.plume-outer {
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 58px; height: 110px;
+  background: linear-gradient(to bottom,
+    rgba(255,150,10,.50) 0%, rgba(200,55,0,.30) 50%,
+    rgba(140,25,0,.12)   70%, transparent);
+  border-radius: 0 0 70% 70%;
+  filter: blur(10px);
+  z-index: 3;
+  animation: plume-expand .2s ease-in-out infinite alternate;
+}
+@keyframes plume-flicker {
+  from { transform: translateX(-50%) scaleX(1)    scaleY(1); }
+  to   { transform: translateX(-50%) scaleX(1.08) scaleY(.94); }
+}
+@keyframes plume-expand {
+  from { transform: translateX(-50%) scaleX(1);    opacity: .84; }
+  to   { transform: translateX(-50%) scaleX(1.12); opacity: 1; }
+}
+
+/* Mach diamonds */
+.mach-diamonds {
+  position: absolute;
+  top: 12px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  z-index: 7;
+}
+.md { border-radius: 50%; background: rgba(255,255,155,.70); filter: blur(1.5px); animation: mach-pulse .14s ease-in-out infinite alternate; }
+.md1 { width:10px; height:15px; animation-delay:0s; }
+.md2 { width: 8px; height:12px; animation-delay:.05s; opacity:.78; }
+.md3 { width: 6px; height: 9px; animation-delay:.10s; opacity:.58; }
+@keyframes mach-pulse {
+  from { opacity: .45; transform: scaleY(.88); }
+  to   { opacity: .90; transform: scaleY(1.12); }
+}
+
+/* Sparks */
+.sparks { position: absolute; top: 2px; left: 50%; transform: translateX(-50%); z-index: 8; }
+.spark {
+  position: absolute;
+  width: 3px; height: 3px; border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, #ffcc00 45%, #ff6600 100%);
+  box-shadow: 0 0 4px #ff8800;
+  animation: spark-fly var(--sd,.85s) ease-out infinite var(--ss,0s);
+}
+@keyframes spark-fly {
+  0%   { transform: translate(0,0) scale(1.4); opacity: 1; }
+  100% { transform: translate(var(--sx,30px),var(--sy,50px)) scale(0); opacity: 0; }
+}
+
+/* Launch smoke */
+.launch-smoke {
+  position: absolute;
+  bottom: -45px; left: 50%;
+  transform: translateX(-50%);
+  width: 1px; height: 1px; z-index: 1;
+}
+.sp {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle,rgba(210,210,210,.65) 0%,rgba(150,150,150,.35) 52%,transparent);
+  filter: blur(7px);
+  animation: smoke-billow var(--sd,2s) ease-out infinite var(--ss,0s);
+}
+.sp1 { width:68px; height:54px; left:-34px; top:  0;    --sd:2s;   --ss:0s;  }
+.sp2 { width:85px; height:66px; left:-78px; top:-10px;  --sd:2.4s; --ss:.2s; }
+.sp3 { width:88px; height:70px; left: 10px; top: -5px;  --sd:2.2s; --ss:.4s; }
+.sp4 { width:60px; height:48px; left:-108px;top:  4px;  --sd:1.9s; --ss:.6s; }
+.sp5 { width:75px; height:58px; left: 36px; top: 10px;  --sd:2.6s; --ss:.1s; }
+@keyframes smoke-billow {
+  0%   { transform: scale(.2) translate(0,0); opacity: .88; filter: blur(4px); }
+  40%  { opacity: .52; }
+  100% { transform: scale(1.65) translate(0,-25px); opacity: 0; filter: blur(15px); }
 }
 
 /* orbits */
