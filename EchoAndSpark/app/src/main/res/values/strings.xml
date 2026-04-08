@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Echo &amp; Spark</string>
+    <string name="start_game">Start Game</string>
+    <string name="shop">Shop</string>
+    <string name="quests">Quests</string>
+</resources>
